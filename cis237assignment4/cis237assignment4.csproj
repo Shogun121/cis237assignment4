@@ -46,6 +46,7 @@
     <Compile Include="DroidCollection.cs" />
     <Compile Include="IDroid.cs" />
     <Compile Include="IDroidCollection.cs" />
+    <Compile Include="IGenericStack.cs" />
     <Compile Include="JanitorDroid.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
