@@ -1,4 +1,7 @@
-﻿using System;
+﻿/**
+ * Robert Cooley
+ * */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,6 +59,64 @@ namespace cis237assignment4
             {
                 _tail = _head;
             }
+        }
+        void AddToBack(T GenericData)
+        {
+            //Create a variable to point to the same place as _head (Used for adding/removing)
+            Node _oldTail = _tail;
+            //Create a new node.
+            _tail = new Node();
+            //Set the data of th enew node to the parameter.
+            _tail.Data = GenericData;
+            //Set Tail's pointer to oldTail.
+            _tail.Next = null;        
+            //Check to see if the linkedList is empty, the inital add wold have moved tail,
+            //but not the head pointer.
+            if(IsEmpty)
+            {
+                _head = _tail;
+            }
+            //If this is not the case, then this is not an inital add.
+            //So the oldTail simply needs to be re-directed.
+            else
+            {
+                _oldTail.Next = _tail;
+            }
+            //Increase the size of the linked list to correspond.
+            _size++;
+        }
+        public T RemoveFromFront()
+        {
+            if(IsEmpty)
+            {
+                throw new Exception("List is empty");
+            }
+            //get the data that needs to be returned.
+            T returnData = _head.Data;
+            //Move the head pointer over.
+            _head = _head.Next;
+
+            /**
+             * The old node no longer has any references to it, so the garbage collector can clear it 
+             * */
+
+            //Decrement linked list size.
+            _size--;
+            //Determine if the node that was removed was the tail node.
+            if(IsEmpty)
+            {
+                _tail=null;
+            }
+
+            //return the data
+            return returnData;
+        }
+        //Constructor
+        public GenericLinkedList()
+        {   //ensure all the variables are as they should start.
+            _head = null;
+            _tail = null;
+            _size = 0;
         }
     }
 }
