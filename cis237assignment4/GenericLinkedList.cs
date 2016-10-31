@@ -111,6 +111,13 @@ namespace cis237assignment4
             //return the data
             return returnData;
         }
+        void Display()
+        {
+            if(IsEmpty)
+            {
+                Console.WriteLine("The list is empty.");
+            }
+        }
         //Constructor
         public GenericLinkedList()
         {   //ensure all the variables are as they should start.

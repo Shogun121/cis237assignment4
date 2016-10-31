@@ -12,6 +12,7 @@ namespace cis237assignment4
     interface IGenericStack<T>
     {
         void AddToFront(T GenericData);
+        void AddToBack(T GenericData);
         T RemoveFromFront();
         void Display();
         bool IsEmpty { get; }
