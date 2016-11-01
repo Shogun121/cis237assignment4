@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace cis237assignment4
 {
-    class GenericLinkedList<T>:IGenericStack<T>
+    class GenericStack<T>:IGenericLinkedList<T>
     {
         protected class Node
         {
@@ -119,7 +119,7 @@ namespace cis237assignment4
             }
         }
         //Constructor
-        public GenericLinkedList()
+        public GenericStack()
         {   //ensure all the variables are as they should start.
             _head = null;
             _tail = null;
