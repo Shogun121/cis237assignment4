@@ -42,7 +42,7 @@ namespace cis237assignment4
                 return _size;
             }
         }
-        void AddToFront(T GenericData)
+        public void AddToFront(T GenericData)
         {
             //Create a variable to point to the same place as _head (Used for adding/removing)
             Node _oldHead = _head;
@@ -60,7 +60,7 @@ namespace cis237assignment4
                 _tail = _head;
             }
         }
-        void AddToBack(T GenericData)
+        public void AddToBack(T GenericData)
         {
             //Create a variable to point to the same place as _head (Used for adding/removing)
             Node _oldTail = _tail;
@@ -111,7 +111,7 @@ namespace cis237assignment4
             //return the data
             return returnData;
         }
-        void Display()
+        public void Display()
         {
             if(IsEmpty)
             {
