@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace cis237assignment4
 {
     //Abstract class that implements the IDroid interface
-    abstract class Droid : IDroid
+    abstract class Droid : IDroid,IComparable
     {
         //some protected variables for the class
         protected string material;
@@ -65,6 +65,22 @@ namespace cis237assignment4
             return "Material: " + this.material + Environment.NewLine +
                     "Model: " + this.model + Environment.NewLine +
                     "Color: " + this.color + Environment.NewLine;
+        }
+        public int CompareTo(object Obj)
+        {
+            if(Obj==null)
+            {
+                return 1;
+            }
+            Obj myObj = new Obj();
+            if(myDroid!=null)
+            {
+                return totalCost.CompareTo(myDroid.totalCost);
+            }
+            else
+            {
+                throw new ArgumentException("Object is not a temperature");
+            }
         }
     }
 }
