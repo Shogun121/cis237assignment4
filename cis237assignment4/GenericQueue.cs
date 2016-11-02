@@ -122,5 +122,11 @@ namespace cis237assignment4
             _tail = null;
             _size = 0;
         }
+        /**
+         * -----TO DO--------------
+         * 
+         * Rename AddToBack-> Enqueue
+         * Rename RemoveFromFront->Dequeue
+         * */
     }
 }

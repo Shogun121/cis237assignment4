@@ -85,6 +85,7 @@ Be sure to think about what the time complexity for the bucket sort will be. Thi
 
 ## Outside Resources Used
 https://dzone.com/articles/implement-queue-using
+https://msdn.microsoft.com/en-us/library/system.icomparable(v=vs.110).aspx	//CompareTo Method.
 
 
 ## Known Problems, Issues, And/Or Errors in the Program

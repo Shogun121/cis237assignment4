@@ -50,6 +50,7 @@
     <Compile Include="IDroidCollection.cs" />
     <Compile Include="IGenericLinkedList.cs" />
     <Compile Include="JanitorDroid.cs" />
+    <Compile Include="MergeSort.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProtocolDroid.cs" />
