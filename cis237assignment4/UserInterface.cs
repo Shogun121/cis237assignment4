@@ -1,4 +1,7 @@
-﻿using System;
+﻿/**
+ * Robert Cooley
+ * */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +34,9 @@ namespace cis237assignment4
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("1. Add a new droid to the system");
             Console.WriteLine("2. Print the list of droids out");
-            Console.WriteLine("3. Exit the program");
+            Console.WriteLine("3. Sort by Total Cost-INCOMPLETE-");
+            Console.WriteLine("4. Sort by Droid Type-INCOMPLETE-");
+            Console.WriteLine("5. Exit the program");
         }
 
         //Method to get a menu choice
@@ -64,7 +69,7 @@ namespace cis237assignment4
             int choice = this.GetMenuChoice();
 
             //If the choice is not valid, loop until it is valid, or the user cancels the operation
-            while(choice < 1 || choice > 4)
+            while(choice < 1 || choice > 3)
             {
                 //Prompt for a valid choice
                 this.displayColorSelection();

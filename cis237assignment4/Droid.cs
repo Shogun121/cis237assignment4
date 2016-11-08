@@ -1,4 +1,7 @@
-﻿using System;
+﻿/**
+ * Robert Cooley
+ * */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -72,14 +75,14 @@ namespace cis237assignment4
             {
                 return 1;
             }
-            Obj myObj = new Obj();
+            Droid myDroid = Obj as Droid;
             if(myDroid!=null)
             {
-                return totalCost.CompareTo(myDroid.totalCost);
+                return this.totalCost.CompareTo(myDroid.totalCost);
             }
             else
             {
-                throw new ArgumentException("Object is not a temperature");
+                throw new ArgumentException("Object is not a Droid");
             }
         }
     }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿/**
+ * Robert Cooley
+ * */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +15,23 @@ namespace cis237assignment4
     {
         //Private variable to hold the collection of droids
         private IDroid[] droidCollection;
+
+        
+
+
         //Private variable to hold the length of the Collection
         private int lengthOfCollection;
+
+        //Create the four Stacks for the separation of the initial array
+            //---------------------------------------------------
+            GenericStack<object> protocolStack = new GenericStack<object>();
+            GenericStack<object> utilityStack = new GenericStack<object>();
+            GenericStack<object> janitorStack = new GenericStack<object>();
+            GenericStack<object> astromechStack = new GenericStack<object>();      
+            //---------------------------------------------------
+
+            //Create a Queue to hold the organized Droids.
+            GenericQueue<object> organizedQueue = new GenericQueue<object>();
 
         //Constructor that takes in the size of the collection.
         //It sets the size of the internal array that will be used.
@@ -123,6 +141,107 @@ namespace cis237assignment4
 
             //return the completed string
             return returnString;
+        }
+        /// <summary>
+        /// Similar to hash table creation
+        /// </summary>
+        /// <param name="Data"></param>
+        public static void BucketSort(ref int[] Data)
+        {
+            //values used to store the min and max, and corresponding index.
+            int minValue = Data[0];
+            int maxValue = Data[0];
+
+            //Read through array to find the Min and Max value.
+            for(int i=1;i<Data.Length;i++)
+            {
+                if(Data[i]>maxValue)
+                {
+                    //replace the old with the new
+                    maxValue = Data[i];
+                }
+                if(Data[i]<minValue)
+                {
+                    //replace the old with the new
+                    minValue = Data[i];
+                }
+            }
+            //Instiate a new integer link list with the range of (max-min)+1
+            List<int>[] bucket = new List<int>[maxValue - minValue - 1];
+
+            //loop through and create a new integer link list at every index.
+            for (int i = 0; i < bucket.Length;i++)
+            {
+                bucket[i]=new List<int>();
+            }
+
+            for(int i=0; i<bucket.Length;i++)
+            {
+                bucket[Data[i] - minValue].Add(Data[i]);
+            }
+            int k=0;
+            for(int i=0; i<bucket.Length;i++)
+            {
+                if(bucket[i].Count() > 0)
+                {
+                    for(int j=0;j<bucket.Length; j++)
+                    {
+                        Data[k] = bucket[i][j];
+                        k++;
+                    }
+                }
+            }
+        }
+        /**
+         * Adjust bucket sort method to accomodate differences in program versus website code sequence.
+         * */
+
+        //method used to determine the droid's type to send it to the correct stack.
+        public void DetermineDroidType(IDroidCollection[] Coll)
+        {
+            for(int i=0;i<Coll.Length;i++)
+            {
+                if(Coll[i].GetType()==typeof(AstromechDroid))
+                {
+                    protocolStack.AddToFront(Coll[i]);
+                }
+                else if (Coll[i].GetType() == typeof(JanitorDroid))
+                {
+                    utilityStack.AddToFront(Coll[i]);
+                }
+                else if (Coll[i].GetType() == typeof(UtilityDroid))
+                {
+                    janitorStack.AddToFront(Coll[i]);
+                }
+                else if (Coll[i].GetType() == typeof(ProtocolDroid))
+                {
+                    astromechStack.AddToFront(Coll[i]);
+                }
+            }
+        }
+        /// <summary>
+        /// Enqueues all the droids one type at a time by checking to see if the current
+        /// type being added has 0 left. (One call per stack)
+        /// </summary>
+        public void EnqueueByType(GenericStack<object> DroidStack,GenericQueue<object> Queue )
+        {
+            //loop used to Empty the passed DroidStack into the Queue.
+            for (int i = 0; i < DroidStack.Size;i++)
+            {
+                //variable used to index the Queue to ensure proper indexing of the stack and queuee
+                int j = 0;
+                //Loop ensuring that the index being saved doesn't already contain a droid.
+                while(Queue[j]!=null)
+                {
+                    j++;
+                }
+                if(Queue[j]==null)
+                {
+                    //Queue[j] = DroidStack[i];
+                    Queue.AddToBack(DroidStack[i]);
+                }
+            }
+
         }
     }
 }

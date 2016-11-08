@@ -85,11 +85,14 @@ Be sure to think about what the time complexity for the bucket sort will be. Thi
 
 ## Outside Resources Used
 https://dzone.com/articles/implement-queue-using
-https://msdn.microsoft.com/en-us/library/system.icomparable(v=vs.110).aspx	//CompareTo Method.
+https://msdn.microsoft.com/en-us/library/system.icomparable(v=vs.110).aspx 	//CompareTo Method.
+https://www.programmingalgorithms.com/algorithm/bucket-sort			//Bucket Sort
+http://stackoverflow.com/questions/983030/type-checking-typeof-gettype-or-is	//Determine Droid Type
 
 
 ## Known Problems, Issues, And/Or Errors in the Program
-
+Syntax Errors Prevent Run.
+BucketSort is in pieces.
 
 
 ## Assignment 3 Description for reference

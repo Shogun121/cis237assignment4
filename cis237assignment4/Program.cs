@@ -1,4 +1,7 @@
-﻿using System;
+﻿/**
+ * Robert Cooley
+ * */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +11,20 @@ namespace cis237assignment4
 {
     class Program
     {
+        /**
+         * COMMENT PROGRAM----------------------------------------------------------------------------
+         * */
         static void Main(string[] args)
         {
             //Create a new droid collection and set the size of it to 100.
             IDroidCollection droidCollection = new DroidCollection(100);
 
-            new ProtocolDroid("Carbonite","Protocol","Bronze",6);
+            //Instantiate MergeSort
+            MergeSort myMerge = new MergeSort();
+
+            //Create Initial Data for the array.
+            //-----------------------------------------------------------------------------------
+           new ProtocolDroid("Quadranium","Protocol","Silver",6);
             new ProtocolDroid("Vanadium", "Protocol", "Silver", 10);
             new ProtocolDroid("Vanadium", "Protocol", "Gold", 20);
 
@@ -28,6 +39,12 @@ namespace cis237assignment4
             new AstromechDroid("Carbonite", "Astromech", "Gold", true, true, true, true, 4);
             new AstromechDroid("Quadranium", "Astromech", "Bronze", true, false, false, false, 10);
             new AstromechDroid("Vanadium", "Astromech", "Silver", false, false, false, false, 15);
+            //-----------------------------------------------------------------------------------
+
+            
+
+            //Create the queue necessary to store the droids.
+            //MAKE A QUEUE
 
             //Create a user interface and pass the droidCollection into it as a dependency
             UserInterface userInterface = new UserInterface(droidCollection);
@@ -42,7 +59,7 @@ namespace cis237assignment4
             int choice = userInterface.GetMenuChoice();
 
             //While the choice is not equal to 3, continue to do work with the program
-            while (choice != 3)
+            while (choice != 5)
             {
                 //Test which choice was made
                 switch (choice)
@@ -55,6 +72,15 @@ namespace cis237assignment4
                     //Choose to Print the droid
                     case 2:
                         userInterface.PrintDroidList();
+                        break;
+                    //Sort by Total Cost
+                    case 3:
+                        
+                        myMerge.Sort(droidCollection[],0,9);
+                        break;
+                    //Sort by Type
+                    case 4:
+
                         break;
                 }
                 //Re-display the menu, and re-prompt for the choice
